@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
             success(res) {
                 if (res.code !== 1) return (isLoading = false);
                 isLoading = false;
-                let htmlStr = '';
+                let htmlStr = ' ';
                 res.data.forEach(_ => {
                     htmlStr += `
                         <a class="item animated bounceIn" href="${_.click_url}" target="_blank">
