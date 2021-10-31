@@ -424,7 +424,6 @@ function _getArticleFiling($self)
 /* 获取淘宝客物料 已测试 √ */
 function _getTbkFavorites($self)
 {
-    define('__TYPECHO_DEBUG__',true);
     header("HTTP/1.1 200 OK");
     header('Access-Control-Allow-Origin:*');
     header("Access-Control-Allow-Headers:Origin, X-Requested-With, Content-Type, Accept");
