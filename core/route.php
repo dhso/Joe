@@ -455,13 +455,13 @@ function _getTbkFavorites($self)
         $req->setAdzoneId($api_adzoneId);
         $req->setMaterialId(31519);
         $resp = $c->execute($req);
-        // $resp = json_decode($resp, TRUE);
+        $resp = json_decode($resp, TRUE);
 
         // $favorites = $resp["result_list"]["map_data"][0]["favorites_info"]["favorites_list"]["favorites_detail"];
 
         Typecho_Response::getInstance()->throwJson([
             "code" => 1,
-            "data" => $resp['result_list']
+            "data" => $resp
         ]);
     } catch (Exception $e) {
         Typecho_Response::getInstance()->throwJson([
