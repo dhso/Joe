@@ -460,9 +460,10 @@ function _getTbkFavorites($self)
             "data" => $resp,
         ]);
     } catch (Exception $e) {
-        Typecho_Response::getInstance()->throwJson([
-            "code" => 0,
-            "data" => $e->getMessage()
-        ]);
+        return $e;
+        // Typecho_Response::getInstance()->throwJson([
+        //     "code" => 0,
+        //     "data" => $e->getMessage()
+        // ]);
     }
 }
