@@ -457,7 +457,7 @@ function _getTbkFavorites($self)
         // $resp = json_decode($resp, TRUE);
         Typecho_Response::getInstance()->throwJson([
             "code" => 1,
-            "data" => 'ok',
+            "data" => $resp,
         ]);
     } catch (Exception $e) {
         Typecho_Response::getInstance()->throwJson([
