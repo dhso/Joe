@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
         }
         htmlStr += `<li class="joe_wallpaper__pagination-item active">${queryData.page_no}</li>`;
-        if (queryData.page_no * queryData.page_size != total) {
+        if (queryData.page_no != Math.ceil(total / queryData.page_size)) {
             htmlStr += `
                 <li class="joe_wallpaper__pagination-item" data-page-no="${queryData.page_no+1}">${queryData.page_no+1}</li>
                 <li class="joe_wallpaper__pagination-item" data-page-no="${queryData.page_no+1}">
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </li>
             `;
         }
-        if (queryData.page_no * queryData.page_size < total) htmlStr += `<li class="joe_wallpaper__pagination-item" data-page-no="${Math.ceil(total / queryData.page_size)}">末页</li>`;
+        if (queryData.page_no < Math.ceil(total / queryData.page_size)) htmlStr += `<li class="joe_wallpaper__pagination-item" data-page-no="${Math.ceil(total / queryData.page_size)}">末页</li>`;
         $('.joe_wallpaper__pagination').html(htmlStr);
     }
     $('.joe_wallpaper__pagination').on('click', '.joe_wallpaper__pagination-item', function () {
