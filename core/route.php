@@ -457,7 +457,7 @@ function _getTbkFavorites($self)
         $resp = $c->execute($req);
         // $resp = json_decode($resp, TRUE);
 
-        $favorites = $resp['result_list']['map_data'][0]["favorites_info"]["favorites_list"]["favorites_detail"];
+        $favorites = $resp["result_list"]["map_data"][0]["favorites_info"]["favorites_list"]["favorites_detail"];
 
         Typecho_Response::getInstance()->throwJson([
             "code" => 1,
