@@ -424,26 +424,28 @@ function _getArticleFiling($self)
 /* 获取淘宝客物料 已测试 √ */
 function _getTbkFavorites($self)
 {
+    define('__TYPECHO_DEBUG__',true);
     header("HTTP/1.1 200 OK");
     header('Access-Control-Allow-Origin:*');
     header("Access-Control-Allow-Headers:Origin, X-Requested-With, Content-Type, Accept");
-    include "taobao/TopSdk.php";
+
     $api_appkey = Helper::options()->TBKAppkey;
-    $api_secretKey = Helper::options()->TBKSecretkey;
-    $api_adzoneId = Helper::options()->TBKAdzoneId;
     if (!$api_appkey) return Typecho_Response::getInstance()->throwJson([
         "code" => 0,
         "data" => "淘宝客Appkey未填写！"
     ]);
+    $api_secretKey = Helper::options()->TBKSecretkey;
     if (!$api_secretKey) return Typecho_Response::getInstance()->throwJson([
         "code" => 0,
         "data" => "淘宝客Secretkey未填写！"
     ]);
+    $api_adzoneId = Helper::options()->TBKAdzoneId;
     if (!$api_adzoneId) return Typecho_Response::getInstance()->throwJson([
         "code" => 0,
         "data" => "淘宝客AdzoneId未填写！"
     ]);
 
+    include "taobao/TopSdk.php";
     try {
         $c = new TopClient;
         $c->appkey = $api_appkey;
