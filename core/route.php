@@ -454,14 +454,14 @@ function _getTbkFavorites($self)
         $req = new TbkDgOptimusMaterialRequest;
         $req->setAdzoneId($api_adzoneId);
         $req->setMaterialId(31519);
-        $resp = $c->execute($req);
-        $resp = json_decode($resp, TRUE);
+        $json = $c->execute($req);
+        $res = json_decode($json, TRUE);
 
         // $favorites = $resp["result_list"]["map_data"][0]["favorites_info"]["favorites_list"]["favorites_detail"];
 
         Typecho_Response::getInstance()->throwJson([
             "code" => 1,
-            "data" => $resp
+            "data" => $res
         ]);
     } catch (Exception $e) {
         Typecho_Response::getInstance()->throwJson([
