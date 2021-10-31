@@ -516,7 +516,7 @@ function _getTbkFavoriteItems($self)
 
         Typecho_Response::getInstance()->throwJson([
             "code" => 1,
-            "data" => $res->result_list->map_data[0]->favorites_info->favorites_list->favorites_detail
+            "data" => $res->result_list
         ]);
     } catch (Exception $e) {
         Typecho_Response::getInstance()->throwJson([
