@@ -7,7 +7,7 @@ class TopClient
 
 	public $gatewayUrl = "http://gw.api.taobao.com/router/rest";
 
-	public $format = "json";
+	public $format = "xml";
 
 	public $connectTimeout;
 
