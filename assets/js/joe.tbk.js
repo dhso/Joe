@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
                 $('.joe_wallpaper__list').html(htmlStr);
                 total = res.total;
-                if(total == 0) return $('.joe_wallpaper__list').html('<div></div>');
+                if(total == 0) return $('.joe_wallpaper__list').html('<div>暂无数据！</div>');
                 initPagination();
             }
         });

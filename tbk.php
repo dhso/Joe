@@ -24,7 +24,7 @@
         <div class="joe_container">
             <div class="joe_main">
                 <div class="joe_wallpaper__type">
-                    <div class="joe_wallpaper__type-title">壁纸分类</div>
+                    <div class="joe_wallpaper__type-title">推荐分类</div>
                     <ul class="joe_wallpaper__type-list">
                         <li class="error">正在拼命加载中...</li>
                     </ul>
