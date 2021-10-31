@@ -445,15 +445,14 @@ function _getTbkFavorites($self)
         "data" => "淘宝客AdzoneId未填写！"
     ]);
 
-    $c = new TopClient;
-    $c->appkey = $api_appkey;
-    $c->secretKey = $api_secretKey;
-    $c->format = "json";
-    $req = new TbkDgOptimusMaterialRequest;
-    $req->setAdzoneId($api_adzoneId);
-    $req->setMaterialId(31519);
-
     try {
+        $c = new TopClient;
+        $c->appkey = $api_appkey;
+        $c->secretKey = $api_secretKey;
+        $c->format = "json";
+        $req = new TbkDgOptimusMaterialRequest;
+        $req->setAdzoneId($api_adzoneId);
+        $req->setMaterialId(31519);
         $resp = $c->execute($req);
         // $resp = json_decode($resp, TRUE);
         Typecho_Response::getInstance()->throwJson([
