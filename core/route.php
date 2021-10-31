@@ -456,11 +456,9 @@ function _getTbkFavorites($self)
         $req->setMaterialId(31519);
         $res = $c->execute($req);
 
-        // $favorites = $resp["result_list"]["map_data"][0]["favorites_info"]["favorites_list"]["favorites_detail"];
-
         Typecho_Response::getInstance()->throwJson([
             "code" => 1,
-            "data" => $res->result_list->map_data[0]
+            "data" => $res->result_list->map_data[0]->favorites_info->favorites_list->favorites_detail
         ]);
     } catch (Exception $e) {
         Typecho_Response::getInstance()->throwJson([
