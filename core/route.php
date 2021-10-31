@@ -445,24 +445,24 @@ function _getTbkFavorites($self)
     ]);
 
     include "taobao/TopSdk.php";
-    try {
-        $c = new TopClient;
-        $c->appkey = $api_appkey;
-        $c->secretKey = $api_secretKey;
-        $c->format = "json";
-        $req = new TbkDgOptimusMaterialRequest;
-        $req->setAdzoneId($api_adzoneId);
-        $req->setMaterialId(31519);
-        $resp = $c->execute($req);
-        // $resp = json_decode($resp, TRUE);
-        Typecho_Response::getInstance()->throwJson([
-            "code" => 1,
-            "data" => $resp,
-        ]);
-    } catch (Exception $e) {
+    // try {
+    $c = new TopClient;
+    $c->appkey = $api_appkey;
+    $c->secretKey = $api_secretKey;
+    $c->format = "json";
+    $req = new TbkDgOptimusMaterialRequest;
+    $req->setAdzoneId($api_adzoneId);
+    $req->setMaterialId(31519);
+    $resp = $c->execute($req);
+    // $resp = json_decode($resp, TRUE);
+    Typecho_Response::getInstance()->throwJson([
+        "code" => 1,
+        "data" => $resp,
+    ]);
+    // } catch (Exception $e) {
         // Typecho_Response::getInstance()->throwJson([
         //     "code" => 0,
         //     "data" => $e->getMessage()
         // ]);
-    }
+    // }
 }
