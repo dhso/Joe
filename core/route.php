@@ -455,19 +455,21 @@ function _getTbkFavorites($self)
     $req->setMaterialId("31519");
     $req->setFormat("json");
     $req->setSimplify(true);
-    try {
-        $res = $c->execute($req);
-        // $res = json_decode($res, TRUE);
-        Typecho_Response::getInstance()->throwJson([
-            "code" => 1,
-            "data" => $res,
-        ]);
-    } catch (Exception $e) {
-        Typecho_Response::getInstance()->throwJson([
-            "code" => 0,
-            "data" => $e
-        ]);
-    }
+
+    $res = $c->execute($req);
+    // $res = json_decode($res, TRUE);
+    Typecho_Response::getInstance()->throwJson([
+        "code" => 1,
+        "data" => $res,
+    ]);
+    // try {
+        
+    // } catch (Exception $e) {
+    //     Typecho_Response::getInstance()->throwJson([
+    //         "code" => 0,
+    //         "data" => $e
+    //     ]);
+    // }
     
 
 
