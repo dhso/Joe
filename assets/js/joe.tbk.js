@@ -50,6 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
                 $('.joe_wallpaper__list').html(htmlStr);
                 total = res.total;
+                if(total==0)return;
                 initPagination();
             }
         });
