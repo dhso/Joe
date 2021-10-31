@@ -1088,6 +1088,7 @@ function themeConfig($form)
         '介绍：请填写淘宝联盟分配给应用的AdzoneId<br />
          例如：mm_26069249_18238549_129744554 的 129744554<br />
          mm_xxx_xxx_xxx的第三位 <br />
+         物料说明：https://market.m.taobao.com/app/qn/toutiao-new/index-pc.html#/detail/10628875?_k=gpov9a <br />
          '
     );
     $TBKAdzoneId->setAttribute('class', 'joe_content joe_other');
