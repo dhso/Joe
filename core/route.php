@@ -457,7 +457,7 @@ function _getTbkFavorites($self)
     $req->setSimplify(true);
     try {
         $res = $c->execute($req);
-        $res = json_decode($res, TRUE);
+        // $res = json_decode($res, TRUE);
         Typecho_Response::getInstance()->throwJson([
             "code" => 1,
             "data" => $res,
