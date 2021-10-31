@@ -454,8 +454,7 @@ function _getTbkFavorites($self)
         $req = new TbkDgOptimusMaterialRequest;
         $req->setAdzoneId($api_adzoneId);
         $req->setMaterialId(31519);
-        $json = $c->execute($req);
-        $res = json_decode($json);
+        $res = $c->execute($req);
 
         // $favorites = $resp["result_list"]["map_data"][0]["favorites_info"]["favorites_list"]["favorites_detail"];
 
