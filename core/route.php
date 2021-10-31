@@ -429,6 +429,7 @@ function _getTbkFavorites($self)
     header("HTTP/1.1 200 OK");
     header('Access-Control-Allow-Origin:*');
     header("Access-Control-Allow-Headers:Origin, X-Requested-With, Content-Type, Accept");
+    header("Content-type: text/html; charset=utf-8");
     $api_appkey = Helper::options()->TBKAppkey;
     $api_secretKey = Helper::options()->TBKSecretkey;
     $api_adzoneId = Helper::options()->TBKAdzoneId;
