@@ -1055,4 +1055,41 @@ function themeConfig($form)
     );
     $JPrismTheme->setAttribute('class', 'joe_content joe_post');
     $form->addInput($JPrismTheme->multiMode());
+
+    $TBKAppkey = new Typecho_Widget_Helper_Form_Element_Text(
+        'TBKAppkey',
+        NULL,
+        NULL,
+        '淘宝联盟分配给应用的AppKey',
+        '介绍：请填写淘宝联盟分配给应用的AppKey<br />
+         例如：28001648 <br />
+         '
+    );
+    $TBKAppkey->setAttribute('class', 'joe_content joe_other');
+    $form->addInput($TBKAppkey);
+
+    $TBKSecretkey = new Typecho_Widget_Helper_Form_Element_Text(
+        'TBKSecretkey',
+        NULL,
+        NULL,
+        '淘宝联盟分配给应用的AppSecret',
+        '介绍：请填写淘宝联盟分配给应用的AppSecret<br />
+         例如：f2718292ef151f3e75d82110eed7398f <br />
+         '
+    );
+    $TBKSecretkey->setAttribute('class', 'joe_content joe_other');
+    $form->addInput($TBKSecretkey);
+
+    $TBKAdzoneId = new Typecho_Widget_Helper_Form_Element_Text(
+        'TBKAdzoneId',
+        NULL,
+        NULL,
+        '淘宝联盟分配给应用的AdzoneId',
+        '介绍：请填写淘宝联盟分配给应用的AdzoneId<br />
+         例如：mm_26069249_18238549_129744554 的 129744554<br />
+         mm_xxx_xxx_xxx的第三位 <br />
+         '
+    );
+    $TBKAdzoneId->setAttribute('class', 'joe_content joe_other');
+    $form->addInput($TBKAdzoneId);
 } ?>

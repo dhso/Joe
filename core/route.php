@@ -1,5 +1,7 @@
 <?php
 
+require_once("library/taobao/TopSdk.php");
+
 /* 获取文章列表 已测试 √  */
 function _getPost($self)
 {
@@ -419,4 +421,63 @@ function _getArticleFiling($self)
         $result[] = array("date" => $date, "list" => $list);
     }
     Typecho_Response::getInstance()->throwJson($result);
+}
+
+/* 获取淘宝客物料 已测试 √ */
+function _getTbkFavoritesList($self)
+{
+    header("HTTP/1.1 200 OK");
+    header('Access-Control-Allow-Origin:*');
+    header("Access-Control-Allow-Headers:Origin, X-Requested-With, Content-Type, Accept");
+    $api_appkey = Helper::options()->TBKAppkey;
+    $api_secretKey = Helper::options()->TBKSecretkey;
+    $api_adzoneId = Helper::options()->TBKAdzoneId;
+    if (!$api_appkey) return Typecho_Response::getInstance()->throwJson([
+        "code" => 0,
+        "data" => "淘宝客Appkey未填写！"
+    ]);
+    if (!$api_secretKey) return Typecho_Response::getInstance()->throwJson([
+        "code" => 0,
+        "data" => "淘宝客Secretkey未填写！"
+    ]);
+    if (!$api_adzoneId) return Typecho_Response::getInstance()->throwJson([
+        "code" => 0,
+        "data" => "淘宝客AdzoneId未填写！"
+    ]);
+
+    $c = new TopClient;
+    $c->appkey = $api_appkey;
+    $c->secretKey = $api_secretKey;
+    $req = new TbkDgOptimusMaterialRequest;
+    $req->setPageSize("20");
+    $req->setAdzoneId($api_adzoneId);
+    $req->setPageNo("1");
+    $req->setMaterialId("31519");
+    try {
+        $res = $c->execute($req);
+        $res = json_decode($res, TRUE);
+        Typecho_Response::getInstance()->throwJson([
+            "code" => 1,
+            "data" => $res,
+        ]);
+    } catch (Exception $e) {
+        Typecho_Response::getInstance()->throwJson([
+            "code" => 0,
+            "data" => $e
+        ]);
+    }
+    
+
+
+    // if ($res['status'] === 200) {
+    //     Typecho_Response::getInstance()->throwJson([
+    //         "code" => 1,
+    //         "data" => $res['data'],
+    //     ]);
+    // } else {
+    //     Typecho_Response::getInstance()->throwJson([
+    //         "code" => 0,
+    //         "data" => "抓取失败！请联系作者！"
+    //     ]);
+    // }
 }
