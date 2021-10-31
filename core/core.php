@@ -71,6 +71,8 @@ function themeInit($self)
             case 'tbk_favorites':
                 _getTbkFavorites($self);
                 break;
+            case 'tbk_favorite_items':
+                _getTbkFavoriteItems($self);
         };
     }
 

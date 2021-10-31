@@ -1,5 +1,7 @@
 <?php
 
+include "taobao/TopSdk.php";
+
 /* 获取文章列表 已测试 √  */
 function _getPost($self)
 {
@@ -444,7 +446,6 @@ function _getTbkFavorites($self)
         "data" => "淘宝客AdzoneId未填写！"
     ]);
 
-    include "taobao/TopSdk.php";
     try {
         $c = new TopClient;
         $c->appkey = $api_appkey;
@@ -454,6 +455,63 @@ function _getTbkFavorites($self)
         $req = new TbkDgOptimusMaterialRequest;
         $req->setAdzoneId($api_adzoneId);
         $req->setMaterialId(31519);
+        $res = $c->execute($req);
+
+        Typecho_Response::getInstance()->throwJson([
+            "code" => 1,
+            "data" => $res->result_list->map_data[0]->favorites_info->favorites_list->favorites_detail
+        ]);
+    } catch (Exception $e) {
+        Typecho_Response::getInstance()->throwJson([
+            "code" => 0,
+            "data" => $e->getMessage()
+        ]);
+    }
+}
+
+/* 获取淘宝客物料 已测试 √ */
+function _getTbkFavoriteItems($self)
+{
+    header("HTTP/1.1 200 OK");
+    header('Access-Control-Allow-Origin:*');
+    header("Access-Control-Allow-Headers:Origin, X-Requested-With, Content-Type, Accept");
+
+    $api_appkey = Helper::options()->TBKAppkey;
+    if (!$api_appkey) return Typecho_Response::getInstance()->throwJson([
+        "code" => 0,
+        "data" => "淘宝客Appkey未填写！"
+    ]);
+    $api_secretKey = Helper::options()->TBKSecretkey;
+    if (!$api_secretKey) return Typecho_Response::getInstance()->throwJson([
+        "code" => 0,
+        "data" => "淘宝客Secretkey未填写！"
+    ]);
+    $api_adzoneId = Helper::options()->TBKAdzoneId;
+    if (!$api_adzoneId) return Typecho_Response::getInstance()->throwJson([
+        "code" => 0,
+        "data" => "淘宝客AdzoneId未填写！"
+    ]);
+
+    $page_size = Typecho_Request::getInstance()->page_size?Typecho_Request::getInstance()->page_size:20;
+    $page_no = Typecho_Request::getInstance()->page_no?Typecho_Request::getInstance()->page_no:1;
+    $favorites_id = Typecho_Request::getInstance()->favorites_id;
+    if (!$favorites_id) return Typecho_Response::getInstance()->throwJson([
+        "code" => 0,
+        "data" => "淘宝客FavoritesId未填写！"
+    ]);
+
+    try {
+        $c = new TopClient;
+        $c->appkey = $api_appkey;
+        $c->secretKey = $api_secretKey;
+        $c->format = "json";
+        $c->simplify = true;
+        $req = new TbkDgOptimusMaterialRequest;
+        $req->setAdzoneId($api_adzoneId);
+        $req->setMaterialId(31539);
+        $req->setFavoritesId($favorites_id);
+        $req->setPageNo($page_no);
+        $req->setPageSize($page_size);
         $res = $c->execute($req);
 
         Typecho_Response::getInstance()->throwJson([
