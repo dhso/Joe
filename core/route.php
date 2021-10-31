@@ -1,6 +1,6 @@
 <?php
 
-require_once("library/taobao/TopSdk.php");
+include "library/taobao/TopSdk.php";
 
 /* 获取文章列表 已测试 √  */
 function _getPost($self)
