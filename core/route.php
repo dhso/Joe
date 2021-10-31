@@ -452,33 +452,17 @@ function _getTbkFavorites($self)
     $req->setAdzoneId($api_adzoneId);
     $req->setMaterialId(31519);
 
-    $res = $c->execute($req);
-    // $res = json_decode($res, TRUE);
-    echo $res;
-    Typecho_Response::getInstance()->throwJson([
-        "code" => 1,
-        "data" => $res,
-    ]);
-    // try {
-        
-    // } catch (Exception $e) {
-    //     Typecho_Response::getInstance()->throwJson([
-    //         "code" => 0,
-    //         "data" => $e
-    //     ]);
-    // }
-    
-
-
-    // if ($res['status'] === 200) {
-    //     Typecho_Response::getInstance()->throwJson([
-    //         "code" => 1,
-    //         "data" => $res['data'],
-    //     ]);
-    // } else {
-    //     Typecho_Response::getInstance()->throwJson([
-    //         "code" => 0,
-    //         "data" => "抓取失败！请联系作者！"
-    //     ]);
-    // }
+    try {
+        $resp = $c->execute($req);
+        $resp = json_decode($resp, TRUE);
+        Typecho_Response::getInstance()->throwJson([
+            "code" => 1,
+            "data" => $resp,
+        ]);
+    } catch (Exception $e) {
+        Typecho_Response::getInstance()->throwJson([
+            "code" => 0,
+            "data" => $e
+        ]);
+    }
 }
