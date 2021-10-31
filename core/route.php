@@ -455,7 +455,7 @@ function _getTbkFavorites($self)
         $req->setAdzoneId($api_adzoneId);
         $req->setMaterialId(31519);
         $json = $c->execute($req);
-        $res = json_decode($json, TRUE);
+        $res = json_decode($json);
 
         // $favorites = $resp["result_list"]["map_data"][0]["favorites_info"]["favorites_list"]["favorites_detail"];
 
