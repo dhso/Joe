@@ -42,14 +42,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (res.code !== 1) return (isLoading = false);
                 isLoading = false;
                 let htmlStr = '';
-                res.data.map_data.forEach(_ => {
+                res.data.forEach(_ => {
                     htmlStr += `
                         <a class="item animated bounceIn" data-fancybox="gallery" href="${_.click_url}">
                             <img width="100%" height="100%" class="lazyload" src="${Joe.LAZY_LOAD}" data-src="${_.pic_url}" alt="商品">
                         </a>`;
                 });
                 $('.joe_wallpaper__list').html(htmlStr);
-                total = res.data.total_count;
+                total = res.total;
                 initPagination();
             }
         });
