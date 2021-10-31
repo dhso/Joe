@@ -1,7 +1,5 @@
 <?php
 
-include "taobao/TopSdk.php";
-
 /* 获取文章列表 已测试 √  */
 function _getPost($self)
 {
@@ -429,6 +427,7 @@ function _getTbkFavorites($self)
     header("HTTP/1.1 200 OK");
     header('Access-Control-Allow-Origin:*');
     header("Access-Control-Allow-Headers:Origin, X-Requested-With, Content-Type, Accept");
+    include "taobao/TopSdk.php";
     $api_appkey = Helper::options()->TBKAppkey;
     $api_secretKey = Helper::options()->TBKSecretkey;
     $api_adzoneId = Helper::options()->TBKAdzoneId;
