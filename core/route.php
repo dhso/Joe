@@ -1,6 +1,6 @@
 <?php
 
-include dirname(__TYPECHO_ROOT_DIR__)."/library/taobao/TopSdk.php";
+include "taobao/TopSdk.php";
 
 /* 获取文章列表 已测试 √  */
 function _getPost($self)
