@@ -449,12 +449,8 @@ function _getTbkFavorites($self)
     $c->appkey = $api_appkey;
     $c->secretKey = $api_secretKey;
     $req = new TbkDgOptimusMaterialRequest;
-    $req->setPageSize("20");
     $req->setAdzoneId($api_adzoneId);
-    $req->setPageNo("1");
-    $req->setMaterialId("31519");
-    $req->setFormat("json");
-    $req->setSimplify(true);
+    $req->setMaterialId(31519);
 
     $res = $c->execute($req);
     // $res = json_decode($res, TRUE);
