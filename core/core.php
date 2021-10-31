@@ -68,6 +68,9 @@ function themeInit($self)
             case 'article_filing':
                 _getArticleFiling($self);
                 break;
+            case 'tbk_favorites':
+                _getTbkFavorites($self);
+                break;
         };
     }
 
