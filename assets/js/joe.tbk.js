@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 let htmlStr = '';
                 res.data.forEach(_ => {
                     htmlStr += `
-                        <a class="item animated bounceIn" data-fancybox="gallery" href="${_.click_url}">
+                        <a class="item animated bounceIn" href="${_.click_url}" target="_blank">
                             <img width="100%" height="100%" class="lazyload" src="${Joe.LAZY_LOAD}" data-src="${_.pict_url}" alt="商品">
                         </a>`;
                 });
