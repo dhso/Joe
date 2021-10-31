@@ -15,7 +15,7 @@
 <head>
     <?php $this->need('public/include.php'); ?>
     <link rel="stylesheet" href="<?php $this->options->themeUrl('assets/css/joe.wallpaper.min.css'); ?>">
-    <script src="<?php $this->options->themeUrl('assets/js/joe.wallpaper.min.js'); ?>"></script>
+    <script src="<?php $this->options->themeUrl('assets/js/joe.tbk.js'); ?>"></script>
 </head>
 
 <body>
