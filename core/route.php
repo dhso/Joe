@@ -463,7 +463,7 @@ function _getTbkFavorites($self)
     } catch (Exception $e) {
         Typecho_Response::getInstance()->throwJson([
             "code" => 0,
-            "data" => $e
+            "data" => $e->getMessage()
         ]);
     }
 }
