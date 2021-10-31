@@ -444,26 +444,25 @@ function _getTbkFavorites($self)
         "data" => "淘宝客AdzoneId未填写！"
     ]);
 
-    // include "taobao/TopSdk.php";
-    // // try {
-    // $c = new TopClient;
-    // $c->appkey = $api_appkey;
-    // $c->secretKey = $api_secretKey;
-    // $c->format = "json";
-    // $req = new TbkDgOptimusMaterialRequest;
-    // $req->setAdzoneId($api_adzoneId);
-    // $req->setMaterialId(31519);
-    // $resp = $c->execute($req);
-    // echo $req;
-    // $resp = json_decode($resp, TRUE);
-    Typecho_Response::getInstance()->throwJson([
-        "code" => 1,
-        "data" => 'ok',
-    ]);
-    // } catch (Exception $e) {
-        // Typecho_Response::getInstance()->throwJson([
-        //     "code" => 0,
-        //     "data" => $e->getMessage()
-        // ]);
-    // }
+    include "taobao/TopSdk.php";
+    try {
+        $c = new TopClient;
+        $c->appkey = $api_appkey;
+        $c->secretKey = $api_secretKey;
+        $c->format = "json";
+        $req = new TbkDgOptimusMaterialRequest;
+        $req->setAdzoneId($api_adzoneId);
+        $req->setMaterialId(31519);
+        $resp = $c->execute($req);
+        // $resp = json_decode($resp, TRUE);
+        Typecho_Response::getInstance()->throwJson([
+            "code" => 1,
+            "data" => 'ok',
+        ]);
+    } catch (Exception $e) {
+        Typecho_Response::getInstance()->throwJson([
+            "code" => 0,
+            "data" => $e->getMessage()
+        ]);
+    }
 }
