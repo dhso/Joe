@@ -453,6 +453,8 @@ function _getTbkFavorites($self)
     $req->setAdzoneId($api_adzoneId);
     $req->setPageNo("1");
     $req->setMaterialId("31519");
+    $req->setFormat("json");
+    $req->setSimplify(true);
     try {
         $res = $c->execute($req);
         $res = json_decode($res, TRUE);
