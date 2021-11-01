@@ -73,6 +73,11 @@
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: space-between;
+		&::after {
+			content: '';
+			width: 196px;
+			height: 0;
+		}
 		.item {
 			position: relative;
 			display: block;
