@@ -70,18 +70,22 @@
 		}
 	}
 	&__list {
-		display: grid;
-		gap: 15px;
-		grid-template-columns: repeat(4, 1fr);
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
 		.item {
 			position: relative;
 			display: block;
 			border-radius: var(--radius-wrap);
 			overflow: hidden;
+			width: 196px;
+			padding: 8px;
+    		margin-bottom: 4px;
 			img {
-				width: 100%;
+				width: 180px;
 				height: 180px;
 				object-fit: cover;
+				border-radius: 4px;
 			}
 			&::before {
 				content: '';
@@ -134,7 +138,7 @@
 				overflow: hidden;
 				text-overflow: ellipsis;
 				background: var(--classD);
-				line-height: 2;
+				line-height: 1;
 				.final{
 					font-size: 14px;
 					font-weight: bold;

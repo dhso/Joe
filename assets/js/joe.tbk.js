@@ -48,7 +48,10 @@ document.addEventListener('DOMContentLoaded', () => {
                             <img width="100%" height="100%" class="lazyload" src="${Joe.LAZY_LOAD}" data-src="${_.pict_url}" alt="商品">
                             <div class="title">${_.title}</div>
                             <div class="price">
-                                <span class="final">${_.zk_final_price}</span>
+                                <span class="final">
+                                    <small>折扣价</small>
+                                    <b>${_.zk_final_price}</b>
+                                </span>
                                 <span class="reserve">${_.reserve_price}</span>
                             </div>
                         </a>`;
