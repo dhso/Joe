@@ -70,25 +70,18 @@
 		}
 	}
 	&__list {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: space-between;
-		&::after {
-			content: '';
-			width: 196px;
-			height: 0;
-		}
+		display: grid;
+		gap: 15px;
+		grid-template-columns: repeat(4, 1fr);
 		.item {
 			position: relative;
 			display: block;
 			border-radius: var(--radius-wrap);
 			overflow: hidden;
-			width: 196px;
 			padding: 8px;
-    		margin-bottom: 4px;
 			img {
-				width: 180px;
-				height: 180px;
+				width: 100%;
+				height: auto;
 				object-fit: cover;
 				border-radius: 4px;
 			}

@@ -104,6 +104,11 @@ html {
 					}
 				}
 			}
+			&_tbk {
+				&__list {
+					grid-template-columns: repeat(4, 1fr);
+				}
+			}
 		}
 	}
 
@@ -273,6 +278,11 @@ html {
 					}
 				}
 			}
+			&_tbk {
+				&__list {
+					grid-template-columns: repeat(3, 1fr);
+				}
+			}
 		}
 		.swiper-container {
 			height: 280px;
@@ -384,6 +394,11 @@ html {
 							}
 						}
 					}
+				}
+			}
+			&_tbk {
+				&__list {
+					grid-template-columns: repeat(2, 1fr);
 				}
 			}
 		}
@@ -882,6 +897,11 @@ html {
 							}
 						}
 					}
+				}
+			}
+			&_tbk {
+				&__list {
+					grid-template-columns: repeat(1, 1fr);
 				}
 			}
 		}
