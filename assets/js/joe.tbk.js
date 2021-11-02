@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 let htmlStr = '';
                 res.data.forEach(_ => {
                     htmlStr += `
-                        <a class="item animated bounceIn" href="${_.click_url}" target="_blank">
+                        <a class="item animated bounceIn" href="${_.coupon_click_url || _.click_url}" target="_blank">
                             <img width="100%" height="100%" class="lazyload" src="${Joe.LAZY_LOAD}" data-src="${_.pict_url}" alt="商品">
                             <div class="title">${_.title}</div>
                             <div class="price">
