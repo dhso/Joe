@@ -3,7 +3,7 @@
  * TOP API: taobao.tbk.dg.vegas.tlj.report request
  * 
  * @author auto create
- * @since 1.0, 2021.10.25
+ * @since 1.0, 2022.06.30
  */
 class TbkDgVegasTljReportRequest
 {

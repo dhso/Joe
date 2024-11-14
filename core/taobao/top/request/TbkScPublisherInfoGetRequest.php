@@ -3,7 +3,7 @@
  * TOP API: taobao.tbk.sc.publisher.info.get request
  * 
  * @author auto create
- * @since 1.0, 2021.01.14
+ * @since 1.0, 2024.06.01
  */
 class TbkScPublisherInfoGetRequest
 {
@@ -23,7 +23,7 @@ class TbkScPublisherInfoGetRequest
 	private $infoType;
 	
 	/** 
-	 * 第几页
+	 * 第几页，下标从0开始
 	 **/
 	private $pageNo;
 	

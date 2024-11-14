@@ -13,6 +13,11 @@ class VegasCpaReportDTO
 	public $biz_date;
 	
 	/** 
+	 * 活动相关数据信息
+	 **/
+	public $ext_info;
+	
+	/** 
 	 * 媒体三段式id，当查询数据为pid维度时返回该字段
 	 **/
 	public $pid;

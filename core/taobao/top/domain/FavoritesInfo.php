@@ -8,12 +8,12 @@ class FavoritesInfo
 {
 	
 	/** 
-	 * 选品库详细信息
+	 * 选品库收藏夹详细信息
 	 **/
 	public $favorites_list;
 	
 	/** 
-	 * 选品库总数量
+	 * 选品库收藏夹总数量
 	 **/
 	public $total_count;	
 }

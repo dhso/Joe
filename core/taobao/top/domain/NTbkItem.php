@@ -43,6 +43,11 @@ class NTbkItem
 	public $i_rfd_rate;
 	
 	/** 
+	 * 入参的（新）商品ID
+	 **/
+	public $input_num_iid;
+	
+	/** 
 	 * 是否加入消费者保障
 	 **/
 	public $is_prepay;

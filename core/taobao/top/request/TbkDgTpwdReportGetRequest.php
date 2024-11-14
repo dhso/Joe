@@ -3,7 +3,7 @@
  * TOP API: taobao.tbk.dg.tpwd.report.get request
  * 
  * @author auto create
- * @since 1.0, 2021.07.19
+ * @since 1.0, 2023.06.25
  */
 class TbkDgTpwdReportGetRequest
 {

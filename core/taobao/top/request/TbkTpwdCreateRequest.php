@@ -3,7 +3,7 @@
  * TOP API: taobao.tbk.tpwd.create request
  * 
  * @author auto create
- * @since 1.0, 2021.09.28
+ * @since 1.0, 2021.11.24
  */
 class TbkTpwdCreateRequest
 {

@@ -3,12 +3,17 @@
  * TOP API: taobao.tbk.dg.vegas.send.report request
  * 
  * @author auto create
- * @since 1.0, 2021.08.27
+ * @since 1.0, 2024.04.19
  */
 class TbkDgVegasSendReportRequest
 {
 	/** 
-	 * 红包活动id：1462
+	 * 查询红包类型，1-超级红包，2-福利购，3-签到红包，4-福利直降，5-幸运赢免单，不传时默认查询超级红包数据
+	 **/
+	private $activityCategory;
+	
+	/** 
+	 * 已下线，后续不需要填写
 	 **/
 	private $activityId;
 	
@@ -28,12 +33,33 @@ class TbkDgVegasSendReportRequest
 	private $pageSize;
 	
 	/** 
+	 * 媒体推广pid
+	 **/
+	private $pid;
+	
+	/** 
 	 * 渠道关系id
 	 **/
 	private $relationId;
 	
+	/** 
+	 * 查询维度，不填写默认是pid维度
+	 **/
+	private $rptDim;
+	
 	private $apiParas = array();
 	
+	public function setActivityCategory($activityCategory)
+	{
+		$this->activityCategory = $activityCategory;
+		$this->apiParas["activity_category"] = $activityCategory;
+	}
+
+	public function getActivityCategory()
+	{
+		return $this->activityCategory;
+	}
+
 	public function setActivityId($activityId)
 	{
 		$this->activityId = $activityId;
@@ -78,6 +104,17 @@ class TbkDgVegasSendReportRequest
 		return $this->pageSize;
 	}
 
+	public function setPid($pid)
+	{
+		$this->pid = $pid;
+		$this->apiParas["pid"] = $pid;
+	}
+
+	public function getPid()
+	{
+		return $this->pid;
+	}
+
 	public function setRelationId($relationId)
 	{
 		$this->relationId = $relationId;
@@ -87,6 +124,17 @@ class TbkDgVegasSendReportRequest
 	public function getRelationId()
 	{
 		return $this->relationId;
+	}
+
+	public function setRptDim($rptDim)
+	{
+		$this->rptDim = $rptDim;
+		$this->apiParas["rpt_dim"] = $rptDim;
+	}
+
+	public function getRptDim()
+	{
+		return $this->rptDim;
 	}
 
 	public function getApiMethodName()
@@ -102,7 +150,6 @@ class TbkDgVegasSendReportRequest
 	public function check()
 	{
 		
-		RequestCheckUtil::checkNotNull($this->activityId,"activityId");
 		RequestCheckUtil::checkNotNull($this->bizDate,"bizDate");
 	}
 	

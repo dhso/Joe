@@ -442,7 +442,7 @@ function _getTbkFavorites($self)
         $c->secretKey = $api_secretKey;
         $c->format = "json";
         $c->simplify = true;
-        $req = new TbkDgOptimusMaterialRequest;
+        $req = new TbkDgMaterialRecommendRequest;
         $req->setAdzoneId($api_adzoneId);
         $req->setMaterialId(31519);
         $res = $c->execute($req);
@@ -496,18 +496,20 @@ function _getTbkFavoriteItems($self)
         $c->secretKey = $api_secretKey;
         $c->format = "json";
         $c->simplify = true;
-        $req = new TbkDgOptimusMaterialRequest;
+        $req = new TbkDgMaterialRecommendRequest;
         $req->setAdzoneId($api_adzoneId);
         $req->setMaterialId(31539);
         $req->setFavoritesId($favorites_id);
         $req->setPageNo($page_no);
         $req->setPageSize($page_size);
         $res = $c->execute($req);
+        $records = $res->result_list->map_data?$res->result_list->map_data:[];
+        $total = $res->total_count?$res->total_count:1;
 
         Typecho_Response::getInstance()->throwJson([
             "code" => 1,
-            "data" => $res->result_list->map_data?$res->result_list->map_data:[],
-            "total" => $res->total_count
+            "data" => $records,
+            "total" => $total
         ]);
     } catch (Exception $e) {
         Typecho_Response::getInstance()->throwJson([

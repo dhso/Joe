@@ -206,3 +206,40 @@
 		}
 	}
 }
+@media (max-width: 1760px) {
+  html {
+    .joe_tbk__list {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  html {
+    .joe_tbk__list {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  html {
+    .joe_tbk__list {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .joe_tbk__pagination {
+      justify-content: center;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    .joe_tbk__list {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .joe_tbk__pagination {
+      justify-content: center;
+    }
+  }
+}

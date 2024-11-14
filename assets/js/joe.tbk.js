@@ -44,15 +44,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 let htmlStr = '';
                 res.data.forEach(_ => {
                     htmlStr += `
-                        <a class="item animated bounceIn" href="${_.coupon_click_url || _.click_url}" target="_blank">
-                            <img width="100%" height="100%" class="lazyload" src="${Joe.LAZY_LOAD}" data-src="${_.pict_url}" alt="商品">
-                            <div class="title">${_.title}</div>
+                        <a class="item animated bounceIn" href="${_.publish_info?.coupon_share_url || _.publish_info?.click_url}" target="_blank">
+                            <img width="100%" height="100%" class="lazyload" src="${Joe.LAZY_LOAD}" data-src="${_.item_basic_info?.pict_url}" alt="${_.item_basic_info?.short_title}">
+                            <div class="title">${_.item_basic_info?.title}</div>
                             <div class="price">
                                 <span class="final">
                                     <small>折扣价</small>
-                                    <b>${_.zk_final_price}</b>
+                                    <b>${_.price_promotion_info?.zk_final_price}</b>
                                 </span>
-                                <span class="reserve">${_.reserve_price}</span>
+                                <span class="reserve">${_.price_promotion_info?.reserve_price}</span>
                             </div>
                         </a>`;
                 });

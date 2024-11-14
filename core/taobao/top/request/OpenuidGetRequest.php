@@ -3,7 +3,7 @@
  * TOP API: taobao.openuid.get request
  * 
  * @author auto create
- * @since 1.0, 2018.10.17
+ * @since 1.0, 2023.07.07
  */
 class OpenuidGetRequest
 {

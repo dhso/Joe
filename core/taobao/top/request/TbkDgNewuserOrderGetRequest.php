@@ -3,7 +3,7 @@
  * TOP API: taobao.tbk.dg.newuser.order.get request
  * 
  * @author auto create
- * @since 1.0, 2019.07.04
+ * @since 1.0, 2021.11.23
  */
 class TbkDgNewuserOrderGetRequest
 {
@@ -119,8 +119,6 @@ class TbkDgNewuserOrderGetRequest
 	{
 		
 		RequestCheckUtil::checkNotNull($this->activityId,"activityId");
-		RequestCheckUtil::checkMaxValue($this->pageSize,100,"pageSize");
-		RequestCheckUtil::checkMinValue($this->pageSize,1,"pageSize");
 	}
 	
 	public function putOtherTextParam($key, $value) {

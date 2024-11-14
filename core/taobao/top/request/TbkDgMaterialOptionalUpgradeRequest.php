@@ -1,54 +1,49 @@
 <?php
 /**
- * TOP API: taobao.tbk.dg.material.optional request
+ * TOP API: taobao.tbk.dg.material.optional.upgrade request
  * 
  * @author auto create
- * @since 1.0, 2021.10.18
+ * @since 1.0, 2024.04.25
  */
-class TbkDgMaterialOptionalRequest
+class TbkDgMaterialOptionalUpgradeRequest
 {
 	/** 
-	 * mm_xxx_xxx_12345678三段式的最后一段数字
+	 * 推广位id，mm_xxx_xxx_12345678三段式的最后一段数字（登录pub.alimama.com推广管理-推广位管理中查询）
 	 **/
 	private $adzoneId;
 	
 	/** 
-	 * 商品筛选-后台类目ID。用,分割，最大10个，该ID可以通过taobao.itemcats.get接口获取到
+	 * 1-动态ID转链场景，2-消费者比价场景（不填默认为1）；场景id使用说明参考《淘宝客新商品ID升级》白皮书：https://www.yuque.com/taobaolianmengguanfangxiaoer/zmig94/tfyt0pahmlpzu2ud
+	 **/
+	private $bizSceneId;
+	
+	/** 
+	 * 商品筛选-后台类目ID。用,分割，最大10个
 	 **/
 	private $cat;
 	
 	/** 
-	 * 本地化业务入参-LBS信息-国标城市码，仅支持单个请求，请求饿了么卡券物料时，该字段必填。 （详细城市ID见：https://mo.m.taobao.com/page_2020010315120200508）
-	 **/
-	private $cityCode;
-	
-	/** 
-	 * 智能匹配-设备号加密类型：MD5
+	 * 智能匹配-设备号加密类型：MD5；使用智能推荐请先签署协议https://pub.alimama.com/fourth/protocol/common.htm?key=hangye_laxin
 	 **/
 	private $deviceEncrypt;
 	
 	/** 
-	 * 智能匹配-设备号类型：IMEI，或者IDFA，或者UTDID（UTDID不支持MD5加密），或者OAID
+	 * 智能匹配-设备号类型：IMEI，或者IDFA，或者UTDID（UTDID不支持MD5加密），或者OAID；使用智能推荐请先签署协议https://pub.alimama.com/fourth/protocol/common.htm?key=hangye_laxin
 	 **/
 	private $deviceType;
 	
 	/** 
-	 * 智能匹配-设备号加密后的值（MD5加密需32位小写）
+	 * 智能匹配-设备号加密后的值（MD5加密需32位小写）；使用智能推荐请先签署协议https://pub.alimama.com/fourth/protocol/common.htm?key=hangye_laxin
 	 **/
 	private $deviceValue;
 	
 	/** 
-	 * 商品筛选-KA媒体淘客佣金比率上限。如：1234表示12.34%
-	 **/
-	private $endKaTkRate;
-	
-	/** 
-	 * 商品筛选-折扣价范围上限。单位：元
+	 * 商品筛选-预估到手价范围上限。单位：元
 	 **/
 	private $endPrice;
 	
 	/** 
-	 * 商品筛选-淘客佣金比率上限。如：1234表示12.34%
+	 * 商品筛选-淘客收入比率上限(商品佣金比率+补贴比率)。如：1234表示12.34%
 	 **/
 	private $endTkRate;
 	
@@ -68,12 +63,12 @@ class TbkDgMaterialOptionalRequest
 	private $includeGoodRate;
 	
 	/** 
-	 * 商品筛选(特定媒体支持)-成交转化是否高于行业均值。True表示大于等于，false或不设置表示不限
+	 * 商品筛选-成交转化是否高于行业均值。True表示大于等于，false或不设置表示不限
 	 **/
 	private $includePayRate30;
 	
 	/** 
-	 * 商品筛选(特定媒体支持)-退款率是否低于行业均值。True表示大于等于，false或不设置表示不限
+	 * 商品筛选-退款率是否低于行业均值。True表示大于等于，false或不设置表示不限
 	 **/
 	private $includeRfdRate;
 	
@@ -98,29 +93,24 @@ class TbkDgMaterialOptionalRequest
 	private $itemloc;
 	
 	/** 
-	 * 本地化业务入参-LBS信息-纬度
-	 **/
-	private $latitude;
-	
-	/** 
-	 * 锁佣结束时间
-	 **/
-	private $lockRateEndTime;
-	
-	/** 
-	 * 锁佣开始时间
-	 **/
-	private $lockRateStartTime;
-	
-	/** 
-	 * 本地化业务入参-LBS信息-经度
-	 **/
-	private $longitude;
-	
-	/** 
-	 * 不传时默认物料id=2836；如果直接对消费者投放，可使用官方个性化算法优化的搜索物料id=17004
+	 * 物料id，不传时默认物料material_id=80309；如果直接对消费者投放，可使用官方个性化算法优化的搜索物料material_id=17004（注意：若物料id=17004没查询到结果则出系统默认物料id=80309的查询结果）
 	 **/
 	private $materialId;
+	
+	/** 
+	 * 线报内容筛选—内容生产截止时间，13毫秒时间戳
+	 **/
+	private $mgcEndTime;
+	
+	/** 
+	 * 线报内容筛选—内容生产开始时间，13毫秒时间戳
+	 **/
+	private $mgcStartTime;
+	
+	/** 
+	 * 线报状态筛选，0-全部 1-过期 2-实时生效 3-未来生效 不传默认过滤有效
+	 **/
+	private $mgcStatus;
 	
 	/** 
 	 * 商品筛选-是否包邮。true表示包邮，false或不设置表示不限
@@ -143,22 +133,17 @@ class TbkDgMaterialOptionalRequest
 	private $pageNo;
 	
 	/** 
-	 * 本地化业务入参-分页唯一标识，非首页的请求必传，值为上一页返回结果中的page_result_key字段值
-	 **/
-	private $pageResultKey;
-	
-	/** 
 	 * 页大小，默认20，1~100
 	 **/
 	private $pageSize;
 	
 	/** 
-	 * 链接形式：1：PC，2：无线，默认：１
+	 * 1-自购省，2-推广赚（代理模式专属ID，代理模式必填，非代理模式不用填写该字段）
 	 **/
-	private $platform;
+	private $promotionType;
 	
 	/** 
-	 * 商品筛选-查询词
+	 * 商品筛选-查询词；注意：使用标题精准搜索时，若无消费者比价场景ID2权限，当搜索结果只有一个商品时则出参不再提供商品推广链接和商品id字段，若搜索结果仍有多个商品，则正常出参。同时无消费者比价场景ID2权限，q参数也不再支持入参淘宝复制的商品链接进行搜索查询，仅支持入参含新商品id的淘宝客推广链接如uland链接进行搜索查询(场景id使用说明参考《淘宝客新商品ID升级》白皮书：https://www.yuque.com/taobaolianmengguanfangxiaoer/zmig94/tfyt0pahmlpzu2ud)
 	 **/
 	private $q;
 	
@@ -168,12 +153,7 @@ class TbkDgMaterialOptionalRequest
 	private $relationId;
 	
 	/** 
-	 * 商家id，仅支持饿了么卡券商家ID，支持批量请求1-100以内，多个商家ID使用英文逗号分隔
-	 **/
-	private $sellerIds;
-	
-	/** 
-	 * 排序_des（降序），排序_asc（升序），销量（total_sales），淘客佣金比率（tk_rate）， 累计推广量（tk_total_sales），总支出佣金（tk_total_commi），价格（price），匹配分（match）
+	 * 排序_des（降序），排序_asc（升序），销量（total_sales），淘客收入比率（tk_rate）， 累计推广量（tk_total_sales），总支出佣金（tk_total_commi），预估到价格（final_promotion_price），匹配分（match）
 	 **/
 	private $sort;
 	
@@ -183,22 +163,17 @@ class TbkDgMaterialOptionalRequest
 	private $specialId;
 	
 	/** 
-	 * 商品筛选(特定媒体支持)-店铺dsr评分。筛选大于等于当前设置的店铺dsr评分的商品0-50000之间
+	 * 商品筛选-店铺dsr评分。筛选大于等于当前设置的店铺dsr评分的商品0-50000之间
 	 **/
 	private $startDsr;
 	
 	/** 
-	 * 商品筛选-KA媒体淘客佣金比率下限。如：1234表示12.34%
-	 **/
-	private $startKaTkRate;
-	
-	/** 
-	 * 商品筛选-折扣价范围下限。单位：元
+	 * 商品筛选-预估到手价范围下限。单位：元
 	 **/
 	private $startPrice;
 	
 	/** 
-	 * 商品筛选-淘客佣金比率下限。如：1234表示12.34%
+	 * 商品筛选-淘客收入比率下限(商品佣金比率+补贴比率)。如：1234表示12.34%
 	 **/
 	private $startTkRate;
 	
@@ -225,6 +200,17 @@ class TbkDgMaterialOptionalRequest
 		return $this->adzoneId;
 	}
 
+	public function setBizSceneId($bizSceneId)
+	{
+		$this->bizSceneId = $bizSceneId;
+		$this->apiParas["biz_scene_id"] = $bizSceneId;
+	}
+
+	public function getBizSceneId()
+	{
+		return $this->bizSceneId;
+	}
+
 	public function setCat($cat)
 	{
 		$this->cat = $cat;
@@ -234,17 +220,6 @@ class TbkDgMaterialOptionalRequest
 	public function getCat()
 	{
 		return $this->cat;
-	}
-
-	public function setCityCode($cityCode)
-	{
-		$this->cityCode = $cityCode;
-		$this->apiParas["city_code"] = $cityCode;
-	}
-
-	public function getCityCode()
-	{
-		return $this->cityCode;
 	}
 
 	public function setDeviceEncrypt($deviceEncrypt)
@@ -278,17 +253,6 @@ class TbkDgMaterialOptionalRequest
 	public function getDeviceValue()
 	{
 		return $this->deviceValue;
-	}
-
-	public function setEndKaTkRate($endKaTkRate)
-	{
-		$this->endKaTkRate = $endKaTkRate;
-		$this->apiParas["end_ka_tk_rate"] = $endKaTkRate;
-	}
-
-	public function getEndKaTkRate()
-	{
-		return $this->endKaTkRate;
 	}
 
 	public function setEndPrice($endPrice)
@@ -412,50 +376,6 @@ class TbkDgMaterialOptionalRequest
 		return $this->itemloc;
 	}
 
-	public function setLatitude($latitude)
-	{
-		$this->latitude = $latitude;
-		$this->apiParas["latitude"] = $latitude;
-	}
-
-	public function getLatitude()
-	{
-		return $this->latitude;
-	}
-
-	public function setLockRateEndTime($lockRateEndTime)
-	{
-		$this->lockRateEndTime = $lockRateEndTime;
-		$this->apiParas["lock_rate_end_time"] = $lockRateEndTime;
-	}
-
-	public function getLockRateEndTime()
-	{
-		return $this->lockRateEndTime;
-	}
-
-	public function setLockRateStartTime($lockRateStartTime)
-	{
-		$this->lockRateStartTime = $lockRateStartTime;
-		$this->apiParas["lock_rate_start_time"] = $lockRateStartTime;
-	}
-
-	public function getLockRateStartTime()
-	{
-		return $this->lockRateStartTime;
-	}
-
-	public function setLongitude($longitude)
-	{
-		$this->longitude = $longitude;
-		$this->apiParas["longitude"] = $longitude;
-	}
-
-	public function getLongitude()
-	{
-		return $this->longitude;
-	}
-
 	public function setMaterialId($materialId)
 	{
 		$this->materialId = $materialId;
@@ -465,6 +385,39 @@ class TbkDgMaterialOptionalRequest
 	public function getMaterialId()
 	{
 		return $this->materialId;
+	}
+
+	public function setMgcEndTime($mgcEndTime)
+	{
+		$this->mgcEndTime = $mgcEndTime;
+		$this->apiParas["mgc_end_time"] = $mgcEndTime;
+	}
+
+	public function getMgcEndTime()
+	{
+		return $this->mgcEndTime;
+	}
+
+	public function setMgcStartTime($mgcStartTime)
+	{
+		$this->mgcStartTime = $mgcStartTime;
+		$this->apiParas["mgc_start_time"] = $mgcStartTime;
+	}
+
+	public function getMgcStartTime()
+	{
+		return $this->mgcStartTime;
+	}
+
+	public function setMgcStatus($mgcStatus)
+	{
+		$this->mgcStatus = $mgcStatus;
+		$this->apiParas["mgc_status"] = $mgcStatus;
+	}
+
+	public function getMgcStatus()
+	{
+		return $this->mgcStatus;
 	}
 
 	public function setNeedFreeShipment($needFreeShipment)
@@ -511,17 +464,6 @@ class TbkDgMaterialOptionalRequest
 		return $this->pageNo;
 	}
 
-	public function setPageResultKey($pageResultKey)
-	{
-		$this->pageResultKey = $pageResultKey;
-		$this->apiParas["page_result_key"] = $pageResultKey;
-	}
-
-	public function getPageResultKey()
-	{
-		return $this->pageResultKey;
-	}
-
 	public function setPageSize($pageSize)
 	{
 		$this->pageSize = $pageSize;
@@ -533,15 +475,15 @@ class TbkDgMaterialOptionalRequest
 		return $this->pageSize;
 	}
 
-	public function setPlatform($platform)
+	public function setPromotionType($promotionType)
 	{
-		$this->platform = $platform;
-		$this->apiParas["platform"] = $platform;
+		$this->promotionType = $promotionType;
+		$this->apiParas["promotion_type"] = $promotionType;
 	}
 
-	public function getPlatform()
+	public function getPromotionType()
 	{
-		return $this->platform;
+		return $this->promotionType;
 	}
 
 	public function setQ($q)
@@ -564,17 +506,6 @@ class TbkDgMaterialOptionalRequest
 	public function getRelationId()
 	{
 		return $this->relationId;
-	}
-
-	public function setSellerIds($sellerIds)
-	{
-		$this->sellerIds = $sellerIds;
-		$this->apiParas["seller_ids"] = $sellerIds;
-	}
-
-	public function getSellerIds()
-	{
-		return $this->sellerIds;
 	}
 
 	public function setSort($sort)
@@ -608,17 +539,6 @@ class TbkDgMaterialOptionalRequest
 	public function getStartDsr()
 	{
 		return $this->startDsr;
-	}
-
-	public function setStartKaTkRate($startKaTkRate)
-	{
-		$this->startKaTkRate = $startKaTkRate;
-		$this->apiParas["start_ka_tk_rate"] = $startKaTkRate;
-	}
-
-	public function getStartKaTkRate()
-	{
-		return $this->startKaTkRate;
 	}
 
 	public function setStartPrice($startPrice)
@@ -667,7 +587,7 @@ class TbkDgMaterialOptionalRequest
 
 	public function getApiMethodName()
 	{
-		return "taobao.tbk.dg.material.optional";
+		return "taobao.tbk.dg.material.optional.upgrade";
 	}
 	
 	public function getApiParas()
@@ -679,7 +599,6 @@ class TbkDgMaterialOptionalRequest
 	{
 		
 		RequestCheckUtil::checkNotNull($this->adzoneId,"adzoneId");
-		RequestCheckUtil::checkMaxValue($this->startDsr,50000,"startDsr");
 	}
 	
 	public function putOtherTextParam($key, $value) {

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * 渠道关系id的发放数据
+ * pid的发放数据
  * @author auto create
  */
 class RightsSendRelationRptDto
@@ -18,8 +18,13 @@ class RightsSendRelationRptDto
 	public $fund_num;
 	
 	/** 
-	 * 渠道关系id
+	 * pid
 	 **/
-	public $relation_id;	
+	public $pid;
+	
+	/** 
+	 * 红包使用次数
+	 **/
+	public $use_num;	
 }
 ?>

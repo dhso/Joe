@@ -3,7 +3,7 @@
  * TOP API: taobao.tbk.sc.publisher.info.save request
  * 
  * @author auto create
- * @since 1.0, 2020.10.30
+ * @since 1.0, 2024.06.01
  */
 class TbkScPublisherInfoSaveRequest
 {

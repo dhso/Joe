@@ -8,11 +8,6 @@ class NTbkShop
 {
 	
 	/** 
-	 * 淘客地址
-	 **/
-	public $click_url;
-	
-	/** 
 	 * 店标图片
 	 **/
 	public $pict_url;

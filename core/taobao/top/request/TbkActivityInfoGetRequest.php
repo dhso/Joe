@@ -3,7 +3,7 @@
  * TOP API: taobao.tbk.activity.info.get request
  * 
  * @author auto create
- * @since 1.0, 2021.05.28
+ * @since 1.0, 2024.03.27
  */
 class TbkActivityInfoGetRequest
 {

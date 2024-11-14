@@ -3,17 +3,22 @@
  * TOP API: taobao.tbk.dg.vegas.send.status request
  * 
  * @author auto create
- * @since 1.0, 2021.08.27
+ * @since 1.0, 2024.06.01
  */
 class TbkDgVegasSendStatusRequest
 {
 	/** 
-	 * 入参类型(该模式下返回的结果为模糊匹配结果，和实际情况可能存在误差)： 1. IMEI 2. IDFA 3. OAID 4. MOBILE 5. ALIPAY_ID
+	 * 查询红包类型，1-超级红包，2-福利购，3-签到红包，4-福利直降，5-幸运赢免单，不传时默认查询超级红包数据
+	 **/
+	private $activityCategory;
+	
+	/** 
+	 * 入参类型(该模式下返回的结果为模糊匹配结果，和实际情况可能存在误差)： 1. IMEI 2. IDFA 3. OAID 4. MOBILE
 	 **/
 	private $deviceType;
 	
 	/** 
-	 * 加密后的值(ALIPAY_ID除外)，需用MD5加密，32位小写
+	 * 加密后的值，需用MD5加密，32位小写
 	 **/
 	private $deviceValue;
 	
@@ -33,12 +38,23 @@ class TbkDgVegasSendStatusRequest
 	private $specialId;
 	
 	/** 
-	 * thor平台业务码， 1：coupon 超红
+	 * 已废弃，请勿传入
 	 **/
 	private $thorBizCode;
 	
 	private $apiParas = array();
 	
+	public function setActivityCategory($activityCategory)
+	{
+		$this->activityCategory = $activityCategory;
+		$this->apiParas["activity_category"] = $activityCategory;
+	}
+
+	public function getActivityCategory()
+	{
+		return $this->activityCategory;
+	}
+
 	public function setDeviceType($deviceType)
 	{
 		$this->deviceType = $deviceType;
