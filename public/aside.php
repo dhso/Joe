@@ -193,11 +193,28 @@
       </div>
     </section>
   <?php endif; ?>
-  <?php if ($this->options->JADContent) : ?>
-    <a class="joe_aside__item advert" target="_blank" rel="noopener noreferrer nofollow" href="<?php echo explode("||", $this->options->JADContent)[1]; ?>" title="广告">
-      <img class="lazyload" width="100%" src="<?php _getLazyload() ?>" data-src="<?php echo explode("||", $this->options->JADContent)[0]; ?>" alt="广告" />
-      <span class="icon">广告</span>
-    </a>
+  <?php
+    $ads = [];
+    $ads_text = $this->options->JADContent;
+    if ($ads_text) {
+      $ads_arr = explode("\r\n", $ads_text);
+      if (count($ads_arr) > 0) {
+        for ($i = 0; $i < count($ads_arr); $i++) {
+          $img = explode("||", $ads_arr[$i])[0];
+          $url = explode("||", $ads_arr[$i])[1];
+          $text = isset(explode("||", $ads_arr[$i])[2]) ? explode("||", $ads_arr[$i])[2] : "推广";
+          $ads[] = array("img" => trim($img), "url" => trim($url), "text" => trim($text));
+        };
+      }
+    }
+  ?>
+  <?php if (sizeof($ads) > 0) : ?>
+    <?php foreach ($ads as $item) : ?>
+      <a class="joe_aside__item advert" target="_blank" rel="noopener noreferrer nofollow" href="<?php echo $item['url'] ?>" title="<?php echo $item['text'] ?>">
+        <img class="lazyload" width="100%" src="<?php _getLazyload() ?>" data-src="<?php echo $item['img'] ?>" alt="<?php echo $item['text'] ?>" />
+        <span class="icon">推广</span>
+      </a>
+    <?php endforeach; ?>
   <?php endif; ?>
   <?php if ($this->options->JAside_Flatterer === 'on') : ?>
     <section class="joe_aside__item flatterer">
