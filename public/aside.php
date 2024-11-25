@@ -34,9 +34,6 @@
       <div class="joe_aside__item-contain"></div>
     </section>
   <?php endif; ?>
-  <?php if ($this->options->JCustomAside) : ?>
-    <section class="joe_aside__item"><?php $this->options->JCustomAside() ?></section>
-  <?php endif; ?>
 
   <?php if ($this->options->JAside_History_Today === 'on') : ?>
     <?php
@@ -216,6 +213,11 @@
       </a>
     <?php endforeach; ?>
   <?php endif; ?>
+
+  <?php if ($this->options->JCustomAside) : ?>
+    <section class="joe_aside__item"><?php $this->options->JCustomAside() ?></section>
+  <?php endif; ?>
+
   <?php if ($this->options->JAside_Flatterer === 'on') : ?>
     <section class="joe_aside__item flatterer">
       <div class="joe_aside__item-title">
