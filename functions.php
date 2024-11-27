@@ -31,6 +31,7 @@ function themeConfig($form)
           <li class="item" data-current="joe_post">文章设置</li>
           <li class="item" data-current="joe_aside">侧栏设置</li>
           <li class="item" data-current="joe_index">首页设置</li>
+          <li class="item" data-current="joe_tbk">淘客设置</li>
           <li class="item" data-current="joe_other">其他设置</li>
         </ul>
         <?php require_once('core/backup.php'); ?>
@@ -1029,7 +1030,7 @@ function themeConfig($form)
      例如：28001648 <br />
      '
   );
-  $TBKAppkey->setAttribute('class', 'joe_content joe_other');
+  $TBKAppkey->setAttribute('class', 'joe_content joe_tbk');
   $form->addInput($TBKAppkey);
 
   $TBKSecretkey = new Typecho_Widget_Helper_Form_Element_Text(
@@ -1041,7 +1042,7 @@ function themeConfig($form)
       例如：f2718292ef151f3e75d82110eed7398f <br />
       '
   );
-  $TBKSecretkey->setAttribute('class', 'joe_content joe_other');
+  $TBKSecretkey->setAttribute('class', 'joe_content joe_tbk');
   $form->addInput($TBKSecretkey);
 
   $TBKAdzoneId = new Typecho_Widget_Helper_Form_Element_Text(
@@ -1055,6 +1056,6 @@ function themeConfig($form)
       物料说明：https://market.m.taobao.com/app/qn/toutiao-new/index-pc.html#/detail/10628875?_k=gpov9a <br />
       '
   );
-  $TBKAdzoneId->setAttribute('class', 'joe_content joe_other');
+  $TBKAdzoneId->setAttribute('class', 'joe_content joe_tbk');
   $form->addInput($TBKAdzoneId);
 } ?>
